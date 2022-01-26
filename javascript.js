@@ -24,8 +24,6 @@ button_1.addEventListener('click', () => playRound('rock', computerPlay()))
 button_2.addEventListener('click', () => playRound('paper', computerPlay()))
 button_3.addEventListener('click', () => playRound('scissors', computerPlay()))
 
-
-
 // buttons.forEach((button) => {button.addEventListener('click', playRound(button.id, computerPlay())) } )
 
 function playRound (playerSelection, computerSelection) {
@@ -89,7 +87,3 @@ function playRound (playerSelection, computerSelection) {
         return;
     }        
     };
-
-
-
-
