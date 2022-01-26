@@ -1,8 +1,5 @@
-/*
-1 - rock
-2 - paper
-3 - scissors
-*/
+let a = 0;
+let b = 0;
 
 function computerPlay () {
     const computer = Math.floor(Math.random() * 3) + 1;
@@ -17,72 +14,82 @@ function computerPlay () {
     return "scissors";
 };
 
+let result = document.getElementById('display')
+let score = document.getElementById('score')
+// const buttons = document.querySelectorAll('button')
+const button_1 = document.querySelector('#rock')
+const button_2 = document.querySelector('#paper')
+const button_3 = document.querySelector('#scissors')
+button_1.addEventListener('click', () => playRound('rock', computerPlay()))
+button_2.addEventListener('click', () => playRound('paper', computerPlay()))
+button_3.addEventListener('click', () => playRound('scissors', computerPlay()))
 
 
-// input value from the user
-// generate a random value for the computer
-// compare the two
-// output a message
-// iterate 5 times
-// output the name of the winner
 
-
+// buttons.forEach((button) => {button.addEventListener('click', playRound(button.id, computerPlay())) } )
 
 function playRound (playerSelection, computerSelection) {
-    if (computerSelection === "rock")
-        {
-            return "You Draw! Rock is even with Rock"
+    if (a === 5) {
+        result.textContent = "Congratulations, you won the series!"
+        return;
+    }
+    if (b === 5) {
+        result.textContent = "Sorry, you lost the series"
+        return;
+    }
+    let x = playerSelection;
+    let y = computerSelection;
+    if (x === y) {
+        result.textContent = "This is a draw!" + ""
+        console.log("1")
+        score.textContent = `The score is ${a} - ${b} (You vs Computer)`
+        } 
+    else if (x === "rock" && y === "paper") {
+        result.textContent = "You lose! Rock loses to Paper"
+        console.log("2")
+        b++;
+        score.textContent = `The score is ${a} - ${b} (You vs Computer)`
+        } 
+    else if (x === "rock" && y === "scissors") {
+        result.textContent = "You win! Rock beats Scissors"
+        console.log("3")
+        a++;
+        score.textContent = `The score is ${a} - ${b} (You vs Computer)`
+        } 
+    else if (x === "paper" && y === "rock") {
+        result.textContent = "You win! Paper beats Rock"
+        console.log("4")
+        a++;
+        score.textContent = `The score is ${a} - ${b} (You vs Computer)`
+         } 
+    else if (x === "paper" && y === "scissors") {
+        result.textContent = "You lose! Paper loses to Scissors"
+        console.log("5")
+        b++;
+        score.textContent = `The score is ${a} - ${b} (You vs Computer)`
+        } 
+    else if (x === "scissors" && y === "rock") {
+        result.textContent = "You lose! Scissors lose to Rock"
+        console.log("7")
+        b++;
+        score.textContent = `The score is ${a} - ${b} (You vs Computer)`
+        } 
+    else if (x === "scissors" && y === "paper") {
+        result.textContent = "You win! Scissors beat Paper"
+        console.log("8")
+        a++;
+        score.textContent = `The score is ${a} - ${b} (You vs Computer)`
         }
-    else if (computerSelection === "scissors")
-        {
-            return "You Win! Rock beats Scissors!"
-        }
-    return "You Lose! Rock loses to Paper";        
-  };
-
-function game () {
-    let a,b = 0;
-
-    for (let i=0; i<5; i++) {
-        let x = window.prompt('Enter one of: rock, paper, scissors. No other symbols, please.');
-        let y = computerPlay();
-        if (x === y) {
-            console.log("This is a draw!");
-        } else if (x === "rock" && y === "paper") {
-            b++;
-            console.log("You lose! Rock loses to Paper");
-        } else if (x === "rock" && y === "scissors") {
-            a++;
-            console.log("You win! Rock beats Scissors");
-        } else if (x === "paper" && y === "rock") {
-            a++;
-            console.log("You win! Paper beats Rock");
-        } else if (x === "paper" && y === "scissors") {
-            b++;  
-            console.log("You lose! Paper loses to Scissors");   
-        } else if (x === "scissors" && y === "rock") {
-            b++;
-            console.log("You lose! Scissors lose to Rock");
-        } else if (x === "scissors" && y === "paper") {
-            a++;
-            console.log("You win! Scissors beat Paper");
-        }
+    if (a === 5) {
+        result.textContent = "Congratulations, you won the series!"
+        return;
+    }
+    if (b === 5) {
+        result.textContent = "Sorry, you lost the series"
+        return;
+    }        
     };
-    if (a > b) {
-        console.log("You won!");
-    } else if (a === b) {
-        console.log("It's a draw!");
-    } else console.log("You lost");
-  };
-
-
-
-const playerSelection = "rock";
-const computerSelection = computerPlay();
-game();
 
 
 
 
-// function that plays the game 5 times
-// use print the winner of each game in console and the winner of the TOTAL game at the end
